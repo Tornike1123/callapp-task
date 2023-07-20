@@ -88,6 +88,7 @@ const UsersTable = ({
       dataSource={generateTableData(users)}
       onRow={(record) => ({
         onDoubleClick: () => {
+          if (!record.id) return;
           openUpdateModal?.(record.id);
         },
       })}

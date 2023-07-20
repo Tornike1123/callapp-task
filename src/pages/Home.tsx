@@ -2,7 +2,7 @@ import { Button, Space, Layout } from "antd";
 import { Content } from "antd/es/layout/layout";
 import { useState } from "react";
 import styles from "./style.module.css";
-import AddOrUpdateModal from "../components/AddOrUpdateModal";
+import AddOrUpdateModal from "../components/addOrUpdateModal";
 import UsersTable from "../components/UsersTable";
 import Navbar from "../components/Navbar";
 
@@ -15,7 +15,7 @@ function Home() {
     setIsOpen(true);
   };
 
-  const openUpdateModal = (id: any) => {
+  const openUpdateModal = (id: number) => {
     setUpdateId(id);
     setIsOpen(true);
   };

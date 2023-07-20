@@ -1,0 +1,24 @@
+:root {
+  --color-white: #ffffff;
+}
+
+.primaryButton {
+  margin: 20px 0;
+}
+
+.header {
+  color: var(--color-white);
+  height: 64px;
+}
+
+.content {
+  padding: 0 50px;
+
+  background-color: var(--color-white);
+}
+
+.navLink {
+  color: var(--color-white);
+  font-weight: bold;
+  font-size: 16px;
+}

@@ -1,11 +1,13 @@
-import { IUser, IGroupedData } from "./type";
+import { IUser, IGroupedData, IFormData, IUserWithoutId } from "./type";
 
 export const getNewId = (users: IUser[]) => {
-  return Math.max(...users.map((o) => o.id)) + 1;
+  return Math.max(...users.map((o) => o.id ?? 1)) + 1;
 };
 
-export const generateRequestData = (data: any, id?: number) => {
-  const form: any = {
+
+
+export const generateRequestData = (data: IFormData, id?: number) => {
+  const form: IUserWithoutId = {
     name: data.name,
     email: data.email,
     gender: data.gender,

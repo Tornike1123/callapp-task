@@ -5,10 +5,9 @@ import { useEffect, useState } from "react";
 import { addUser, getUserById, getUserData, updateUser } from "../Api";
 import { generateRequestData, getNewId } from "../utils";
 import useStore from "../store";
+import { IFormData } from "../type";
 
-type addOrUpdateModalProps = {
-  updateId: number | null;
-} & ModalProps;
+type addOrUpdateModalProps = { updateId: number | null } & ModalProps;
 
 const { Option: AntOption } = Select;
 
@@ -39,7 +38,7 @@ const AddOrUpdateModal = (props: addOrUpdateModalProps) => {
     });
   };
 
-  const handleSubmit = async (values: any) => {
+  const handleSubmit = async (values: IFormData) => {
     if (props.updateId) {
       await updateUser(props.updateId, generateRequestData(values));
     } else {

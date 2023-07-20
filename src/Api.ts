@@ -1,5 +1,5 @@
 import axios from "axios";
-import { IUser } from "./type";
+import { IUser, IUserWithoutId } from "./type";
 
 const baseUrl = "http://localhost:3000";
 
@@ -16,7 +16,7 @@ export const addUser = async (user: IUser) => {
   await axios.post(`${baseUrl}/user`, user);
 };
 
-export const updateUser = async (id: number, form: any) => {
+export const updateUser = async (id: number, form: IUserWithoutId) => {
   await axios.put(`${baseUrl}/user/${id}`, form);
 };
 

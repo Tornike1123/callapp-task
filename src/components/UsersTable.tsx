@@ -1,9 +1,10 @@
 import { Modal, Table } from "antd";
 import { DeleteOutlined } from "@ant-design/icons";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import useStore from "../store";
 import { deleteUser, getUserData } from "../Api";
 import { generateTableData } from "../utils";
+import { IFormData } from "../type";
 
 const UsersTable = ({
   openUpdateModal,
@@ -18,10 +19,11 @@ const UsersTable = ({
     });
   };
 
-  const deleteItem = (record: any) => {
+  const deleteItem = (record: IFormData) => {
     Modal.confirm({
       title: "Are u sure, you want to delete",
       onOk: async () => {
+        if (!record.id) return;
         await deleteUser(record.id);
         fetchUsers();
       },
